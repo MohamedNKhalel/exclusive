@@ -1,0 +1,44 @@
+.contact-list{
+    li{
+        i{
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 25px;
+            border-radius: 50%;
+            padding: 13px;
+        }
+        span{
+            font-weight: 500;
+            line-height: 24px;
+        }
+        p{
+            font-size: .875em;
+            margin: 0;
+        }
+    }
+}
+.contact-inputs{
+    input,textarea{
+        background-color: var(--secondary-color);
+        padding: 12px 20px;
+        border: none;
+        outline: none;
+        border-radius: var(--raduis);
+    }
+    textarea{
+        width: 100%;
+        resize: none;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .top-inputs{
+        flex-direction: column;
+        row-gap: 20px;
+        input{
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,64 @@
+<div *ngIf="!isBillingShown" class="container">
+    <div class="directions">
+        <span routerLink="/home" class="previous">home</span>
+        <span class="current">cart</span>
+    </div>
+    <div class="py-5">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th colspan="2">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  *ngFor="let item of cartProducts ; let i = index" class="product cursor-pointer">
+                    <td [routerLink]="['/details',item?.product?.id]" class="d-flex align-items-center justify-content-start product-info gap-lg-5 ">
+                        <img [src]="item?.product?.image" alt="">
+                        <h2 class="h6 m-0">{{item?.product?.title.split(' ').slice(0,1).join(' ')}}</h2>
+                    </td>
+                    <td class="product-price">${{item?.product?.price}}</td>
+                    <td class="product-quantity"><input [disabled]="!updateClicked" (change)="changeQuantity($event)" [(ngModel)]="item.quantity" min="0"  type="number" title="quantity"></td>
+                    <td >${{item?.product?.price * item.quantity}}</td>
+                    <td ><button (click)="deleteCartProduct(i)" *ngIf="updateClicked" type="button" class="btn delete-btn btn-danger"><i class="fa fa-trash-can me-2"></i>Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between align-items-center table-buttons">
+            <button routerLink="/home" type="button" >return to shop</button>
+            <button *ngIf="!updateClicked" (click)="updateClicked = !updateClicked" type="button" >update cart</button>
+            <button *ngIf="updateClicked" (click)="updateClicked = !updateClicked" class="done-btn" type="button" >Done</button>
+        </div>
+        <div class="row g-4 my-5">
+            <div class="col-md-6">
+                <div class="coupon d-flex gap-3">
+                    <input type="text" placeholder="Coupon Code">
+                    <button type="button" class="main-btn">aplly coupon</button>
+                </div>
+            </div>
+            <div class="col-md-5 offset-lg-1">
+                <div class="cart-total border border-black rounded-1  p-3">
+                    <h2>Cart Total</h2>
+                    <ul class="list-unstyled mt-4 d-flex flex-column gap-4">
+                        <li class="pb-3 border-bottom border-black d-flex justify-content-between align-items-center">
+                            <p class="m-0">Subtotal:</p>
+                            <span>${{totalPrice.toFixed()}}</span>
+                        </li>
+                        <li class="pb-3 border-bottom border-black d-flex justify-content-between align-items-center">
+                            <p class="m-0">Shipping:</p>
+                            <span>free</span>
+                        </li>
+                        <li class=" d-flex justify-content-between align-items-center">
+                            <p class="m-0">Total:</p>
+                            <span>${{totalPrice.toFixed()}}</span>
+                        </li>
+                    </ul>
+                    <button routerLink="billing" type="button" class="main-btn d-block m-auto">process to checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet ></router-outlet>

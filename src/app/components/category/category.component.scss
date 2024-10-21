@@ -1,0 +1,68 @@
+.selling-cards{
+    overflow-x: hidden;
+    cursor: pointer;
+    .selling-card{
+        .head{
+            overflow: hidden;
+            position: relative;
+            .card-detail{
+                position: absolute;
+                top: 20px;
+                left: 25px;
+                right: 25px;
+                align-items: end;
+                row-gap: 10px;
+                i{
+                    padding: 10px;
+                    background-color: white;
+                    border-radius: 50%;
+                    transition: all 300ms ease;
+                    &:hover{
+                        background-color: var(--black);
+                        color: white;
+                    }
+                }
+            }
+            img{
+                object-fit: contain;
+            }
+            &:hover .addBtn{
+                bottom: 0;
+            }
+            img{
+                width: 100%;
+            }
+            button{
+                width: 100%;
+                position: absolute;
+                bottom: -80px;
+                left: 0;
+                transition: all 300ms ease;
+            }
+        }
+        .body{
+            h3{
+                font-size: 1rem;
+                font-weight: 500;
+            }
+            .price{
+                span{
+                    color: var(--primary-color);
+                }
+                span,del{
+                    font-weight: 600;
+                    line-height: 24px;
+                }
+            }
+        }
+        .footer{
+            .price{
+                span{
+                    color: var(--primary-color);
+                    font-weight: 600;
+                    line-height: 24px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+<section class="main">
+    <div class="row align-items-center py-5 g-0">
+        <div class="col-md-6 mb-5">
+            <div>
+                <img src="./assets/images/sign.png" class="w-100" alt="">
+            </div>
+        </div>
+        <div class="col-md-4 offset-lg-1">
+            <div class="logic-text">
+                <h1 class="mb-4">Create an account</h1>
+                <p>Enter your details below</p>
+                <form (ngSubmit)="register()" [formGroup]="registerForm">
+                    <div class="mb-4">
+                        <input #nameInput formControlName="name" type="text" placeholder="Name">
+                        <div *ngIf="registerForm.get('name')?.errors && (registerForm.get('name')?.touched || nameInput.value.length > 0)" class="alert alert-danger mt-2">
+                            <p *ngIf="registerForm.get('name')?.errors?.['required']">name is required</p>
+                            <p *ngIf="registerForm.get('name')?.errors?.['minlength']">name length must be at least 3 characters</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <input #emailInput formControlName="email" type="email" placeholder="Email">
+                        <div class="alert alert-danger mt-2" *ngIf="registerForm.get('email')?.errors && (registerForm.get('email')?.touched || emailInput.value.length > 0)">
+                            <p *ngIf="registerForm.get('email')?.errors?.['required']">Email is required</p>
+                            <p *ngIf="registerForm.get('email')?.errors?.['email']">Please enter a valid email shape</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <input #passInput type="password" formControlName="password" placeholder="Password">
+                        <div class="alert alert-danger mt-2" *ngIf="registerForm.get('password')?.errors && (registerForm.get('password')?.touched || passInput.value.length > 0)">
+                            <p *ngIf="registerForm.get('password')?.errors?.['required']">password is required</p>
+                            <p *ngIf="registerForm.get('password')?.errors?.['minlength']">password must be at least 5 characters</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <input #phoneInput formControlName="phone" type="phone" placeholder="Phone Number">
+                        <div class="alert alert-danger mt-2" *ngIf="registerForm.get('phone')?.errors && (registerForm.get('phone')?.touched || phoneInput.value.length > 0)">
+                            <p *ngIf="registerForm.get('phone')?.errors?.['required']">Phone is required</p>
+                            <p *ngIf="registerForm.get('phone')?.errors?.['pattern']">Please enter a valid phone number</p>
+                        </div>
+                    </div>
+                    <div *ngIf="errMsg" class="alert alert-danger">
+                        <p class="m-0 text-center">{{errMsg}}</p>
+                    </div>
+                    <div class="logic-buttons d-flex flex-column justify-content-center mb-4 gap-4">
+                        <button [disabled]="registerForm.invalid" type="submit" class="main-btn">Create Account</button>
+                        <button type="button" class="google"><img src="./assets/images/google.png" alt="google" > Sign up with Google</button>
+                    </div>
+                    <span class="text-center d-flex justify-content-center align-items-center gap-4">Already have account? <a class="pb-1 text-black border-bottom border-black text-decoration-none" routerLink="/login">Log in</a></span>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

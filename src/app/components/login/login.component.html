@@ -1,0 +1,41 @@
+<section class="main">
+    <div class="row align-items-center py-5 g-0">
+        <div class="col-md-6 mb-5">
+            <div>
+                <img src="./assets/images/sign.png" class="w-100" alt="">
+            </div>
+        </div>
+        <div class="col-md-4 offset-lg-1">
+            <div class="logic-text">
+                <h1 class="mb-4">Login to Exclusive</h1>
+                <p>Enter your details below</p>
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="mb-4">
+                        <input #emailInput formControlName="email" type="email" placeholder="Email or Phone Number">
+                        <div class="alert alert-danger mt-2" *ngIf="loginForm.get('email')?.errors && (loginForm.get('email')?.touched || emailInput.value.length > 0)">
+                            <p class="m-0" *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</p>
+                            <p class="m-0" *ngIf="loginForm.get('email')?.errors?.['email']">Please enter a valid email</p>
+                        </div>  
+                    </div>
+                    <div class="mb-4">
+                        <input #passInput formControlName="password" type="password" placeholder="Password">
+                        <div  class="alert alert-danger mt-2" *ngIf="loginForm.get('password')?.errors && (loginForm.get('password')?.touched || passInput.value.length > 0)">
+                            <p class="m-0" *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</p>
+                        </div>  
+                    </div>
+                    <div *ngIf="errMsg" class="alert alert-danger">
+                        <p class="m-0 text-center">{{errMsg}}</p>
+                    </div>
+                    <div class="logic-buttons d-flex justify-content-between align-items-center mb-4 gap-4">
+                        <button [disabled]="loginForm.invalid" type="submit" class="main-btn">Log in</button>
+                        <p class="m-0">Forget password?</p>
+                    </div>
+                    <div>
+                        <button  type="button" class="google mb-4"><img src="./assets/images/google.png" alt=""> Log in with Google</button>
+                    </div>
+                    <span class="text-center d-flex justify-content-center align-items-center gap-4">Don't have account? <a class="pb-1 text-black border-bottom border-black text-decoration-none" routerLink="/register">Sign Up</a></span>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

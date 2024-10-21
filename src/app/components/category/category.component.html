@@ -1,0 +1,36 @@
+<div class="container py-5">
+    <div #ourProducts class="row g-4 selling-cards mt-4">
+        <div *ngFor="let product of products; let i = index" [routerLink]="['/details',product.id]" class="col-md-3">
+            <div class="selling-card">
+                <div class="head">
+                    <img height="300" [src]="product.image" alt="">
+                    <div (click)="stop($event)">
+                        <button (click)="addToCart(product)" type="button" class="addBtn add-btn">Add To Cart</button>
+                    </div>
+                    <div class="card-detail d-flex flex-column">
+                        <i *ngIf="!wishlistIds.includes($any(product.id))" (click)="addToWishlist(product,$event)" class="fa-regular fa-heart shadow"></i>
+                        <i *ngIf="wishlistIds.includes($any(product.id))" (click)="removeFromWishlist(product.id,$event)" class="fa-solid fa-heart text-danger shadow"></i>
+                        <i (click)="showModal(product.image,$event)" class="fa-regular fa-eye shadow"></i>
+                    </div>
+                </div>
+                <div class="body">
+                    <h3 class="mt-2">{{product.title.split(' ').slice(0, 3).join(' ')}}</h3>
+                </div>
+                <div class="footer d-flex justify-content-between align-items-center">
+                    <div class="price">
+                        <span class="me-4">{{product.price}}$</span>
+                    </div>
+                    <div>
+                        <i [class.rating-color]="num <= product.rating.rate" class="fa fa-star me-1" *ngFor="let num of [1,2,3,4,5]"></i>
+                        <span class="text-muted">({{product.rating.count}})</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showModalVar" (click)="showModalVar = false" class="modal position-fixed d-flex justify-content-center align-items-center top-0 bottom-0 start-0 end-0">
+    <div (click)="stop($event)" class="main-image m-auto">
+        <img [src]="imageUrl" class="w-100" alt="">
+    </div>
+</div>
