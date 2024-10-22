@@ -1,0 +1,126 @@
+.search{
+    input{
+        background-color: var(--secondary-color);
+        border: none;
+        padding: 7px 40px 7px 20px;
+        border-radius: var(--raduis);
+        outline: none;
+    }
+    i{
+        right: 5px;
+        &:hover{
+            color: gray;
+            cursor: pointer;
+        }
+    }
+}
+.navbar-brand{
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 24px;
+    letter-spacing: .5px;
+}
+.nav-item{
+    padding: 10px;
+    .nav-link{
+        color: var(--black) !important;
+        text-transform: capitalize;
+        font-weight: 400;
+        line-height: 24px;
+        padding: 0;
+    }
+}
+.active-user{
+    background-color: var(--primary-color);
+        width: 35px;
+        height: 35px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border-radius: 50%;
+        cursor: pointer;
+        i{
+            
+            font-size: 18px !important;
+        }
+}
+.data{
+    display: flex;
+    align-items: center;
+    
+    i{
+        font-size: 25px;
+        cursor: pointer;
+    }
+    .user{
+        width: 30px;
+        height: 30px;
+        i{
+            font-size: 25px;
+        }
+        .user-seetings{
+            border-radius: var(--raduis);
+            width: 250px;
+            top:120%;
+            padding: 0;
+            backdrop-filter: blur(50px); 
+            -webkit-backdrop-filter: blur(50px);
+            background-image: linear-gradient(to right,#996b9f,#0000000A);
+            overflow: hidden;
+            ul{
+                margin: 0;
+                li{
+                    cursor: pointer;
+                    padding: 20px;
+                    transition: all 300ms ease;
+                    &:hover{
+                        background-color: var(--primary-color);
+                    }
+                }
+            }
+            
+            i{
+                color: white;
+                font-size: 22px;
+            }
+            .fa-arrow-right-from-bracket{
+                transform: rotate(180deg);
+            }
+            a{
+                color: white;
+                font-size: .875em;
+                text-transform: capitalize;
+            }
+        }
+    }
+    img{
+        width: 30px;
+        cursor: pointer;
+    }
+    .count{
+        position: absolute;
+        background-color: var(--primary-color);
+        top: -5px;
+        right:-5px;
+        width: 15px;
+        height: 15px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        overflow: hidden;
+        span{
+            font-size: .75em;
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .right-items{
+        flex-direction: column;
+    }
+    
+}

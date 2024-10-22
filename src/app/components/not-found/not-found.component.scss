@@ -1,0 +1,19 @@
+.main{
+    padding-block: 80px;
+    row-gap: 110px !important;
+    min-height: 100vh;
+    .text{
+        text-align: center;
+        color: var(--black);
+        h1{
+            font-size: 6.875em;
+            font-weight: 500;
+        }
+    }
+}
+@media screen and (max-width:768px) {
+    .main{
+        row-gap: 50px !important;
+        font-size: 14px;
+    }
+}

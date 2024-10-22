@@ -1,0 +1,24 @@
+.marka{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 15px;
+    img{
+        width: 45px;
+    }
+    h2{
+        font-size: 1em;
+        font-weight: 400;
+    }
+    p{
+        font-size: 3em;
+        font-weight: 600;
+        line-height: 60px;
+    }
+    a{
+        font-weight: 500;
+        font-size: 1em;
+        align-self: flex-start;
+    }
+}
