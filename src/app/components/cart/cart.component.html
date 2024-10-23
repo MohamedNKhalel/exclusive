@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr  *ngFor="let item of cartProducts ; let i = index" class="product cursor-pointer">
+                <tr *ngFor="let item of cartProducts ; let i = index" class="product cursor-pointer">
                     <td [routerLink]="['/details',item?.product?.id]" class="d-flex align-items-center justify-content-start product-info gap-lg-5 ">
                         <img [src]="item?.product?.image" alt="">
                         <h2 class="h6 m-0">{{item?.product?.title.split(' ').slice(0,1).join(' ')}}</h2>
@@ -32,13 +32,13 @@
             <button *ngIf="updateClicked" (click)="updateClicked = !updateClicked" class="done-btn" type="button" >Done</button>
         </div>
         <div class="row g-4 my-5">
-            <div class="col-md-6">
-                <div class="coupon d-flex gap-3">
+            <div class="col-lg-6 ">
+                <div class="coupon d-flex justify-content-between">
                     <input type="text" placeholder="Coupon Code">
                     <button type="button" class="main-btn">aplly coupon</button>
                 </div>
             </div>
-            <div class="col-md-5 offset-lg-1">
+            <div class="col-lg-5  offset-lg-1">
                 <div class="cart-total border border-black rounded-1  p-3">
                     <h2>Cart Total</h2>
                     <ul class="list-unstyled mt-4 d-flex flex-column gap-4">

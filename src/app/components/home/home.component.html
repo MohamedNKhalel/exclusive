@@ -1,7 +1,7 @@
 
 <section class="container">
     <div class="row mb-5">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-4">
             <div>   
                 <ul  class="list-unstyled border-end border-2 d-flex flex-column pt-5 gap-3 side-menu">
                     <li>
@@ -54,7 +54,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-lg-9 col-md-8">
             <div class="pt-5">
                 <app-slider></app-slider>
             </div>
@@ -64,7 +64,7 @@
         <h2 class="text-capitalize title">today's</h2>
         <div class="sale py-3">
             <div class=" row align-items-center details  justify-content-between">
-                <div class="col-md-8">
+                <div class="col-lg-8">
                     <div class="d-flex align-items-center gap-5">
                         <h3 class="text-capitalize">flash sales</h3>
                         <ul class="list-unstyled d-flex gap-4">
@@ -87,7 +87,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-4">
                     <div class="sale-icons text-end d-block">
                         <i (click)="moveLeft(saleCards)" class="fa-solid fa-arrow-left me-4"></i>
                         <i (click)="moveRight(saleCards)" class="fa-solid fa-arrow-right"></i>
@@ -95,7 +95,7 @@
                 </div>
             </div>
             <div #saleCards [class.flex-nowrap]="!showTodayProducts" class="row g-4  sale-cards mt-3">
-                <div *ngFor="let product of products.slice(12,-1); let i = index" [routerLink]="['/details',product.id]" class="col-lg-3">
+                <div *ngFor="let product of products.slice(12,-1); let i = index" [routerLink]="['/details',product.id]" class="col-lg-3 col-md-6">
                     <div class="sale-card rounded-2 overflow-hidden">
                         <div class="head position-relative">
                             <img class="w-100" [src]="product.image"  [alt]="product.title" title="product">
@@ -158,7 +158,7 @@
         <h2 class="text-capitalize title">this month</h2>
         <div class="row justify-content-between align-items-center mt-4">
             <div class="col-md-6">
-                <div>
+                <div class="selling">
                     <h3 class="text-capitalize">best selling products</h3>
                 </div>
             </div>
@@ -170,7 +170,7 @@
             </div>
         </div>
         <div [class.flex-nowrap]="!isShowClicked" class="row g-4  selling-cards mt-4">
-            <div  *ngFor="let product of products.slice(4,-1)| search:searchWord; let i = index" [routerLink]="['/details',product.id]" class="col-md-3">
+            <div  *ngFor="let product of products.slice(4,-1)| search:searchWord; let i = index" [routerLink]="['/details',product.id]" class="col-lg-3 col-md-6">
                 <div class="selling-card">
                     <div class="head">
                         <img  [src]="product.image" alt="">
@@ -205,19 +205,19 @@
                 <div class="d-flex flex-column gap-3">
                     <p>Enhance Your Music Experience</p>
                     <ul class="list-unstyled d-flex gap-4">
-                        <li class="d-flex flex-column justify-content-center text-center  rounded-circle">
+                        <li class="d-flex flex-column justify-content-center text-center ">
                             <b>23</b>
                             <span>hours</span>
                         </li>
-                        <li class="d-flex flex-column justify-content-center text-center  rounded-circle">
+                        <li class="d-flex flex-column justify-content-center text-center ">
                             <b>05</b>
                             <span>days</span>
                         </li>
-                        <li class="d-flex flex-column justify-content-center text-center  rounded-circle">
+                        <li class="d-flex flex-column justify-content-center text-center ">
                             <b>59</b>
                             <span>minutes</span>
                         </li>
-                        <li class="d-flex flex-column justify-content-center text-center  rounded-circle">
+                        <li class="d-flex flex-column justify-content-center text-center ">
                             <b>35</b>
                             <span>seconds</span>
                         </li>
@@ -249,7 +249,7 @@
             </div>
         </div>
         <div #ourProducts class="row g-4 flex-nowrap selling-cards mt-4">
-            <div *ngFor="let product of products| search:searchWord; let i = index" [routerLink]="['/details',product.id]" class="col-md-3">
+            <div *ngFor="let product of products| search:searchWord; let i = index" [routerLink]="['/details',product.id]" class="col-lg-3 col-md-6">
                 <div class="selling-card">
                     <div class="head">
                         <img  [src]="product.image" alt="">
@@ -278,7 +278,7 @@
             </div>
         </div>
         <div  [class.flex-nowrap]="!showOurProducts" class="row g-4  new-products mt-4">
-            <div *ngFor="let product of products.slice(8,-1)| search:searchWord ; let even = even ; let i = index" [routerLink]="['/details',product.id]" class="col-md-3">
+            <div *ngFor="let product of products.slice(8,-1)| search:searchWord ; let even = even ; let i = index" [routerLink]="['/details',product.id]" class="col-lg-3 col-md-6">
                 <div class="new-product-card">
                     <div class="head">
                         <img  [src]="product.image" alt="">
@@ -329,7 +329,7 @@
         <h2 class="text-capitalize title">featured</h2>
         <h3 class="text-capitalize mt-3">new arrival</h3>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6 ">
                 <div class="bg-black position-relative">
                     <img src="./assets/images/ps5.png" class="w-100" alt="">
                     <div class="ps5-layer p-4 text-white">
@@ -339,7 +339,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 ">
                 <div class="d-flex h-100 flex-column justify-content-between">
                     <div class="position-relative woman">
                         <img src="assets/images/woman.png" height="380" alt="">

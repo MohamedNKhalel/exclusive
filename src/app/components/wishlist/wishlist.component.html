@@ -4,7 +4,7 @@
         <button [disabled]="products.length <= 0" (click)="moveToCart()" type="button" class="third-btn">move all to bag</button>
     </div>
     <div class="row g-4 pb-5 ">
-        <div class="col-md-3" *ngFor="let product of products" [routerLink]="['/details',product.id]">
+        <div class="col-lg-3 col-md-6" *ngFor="let product of products" [routerLink]="['/details',product.id]">
             <div class="wish-card">
                 <div class="head position-relative p-4">
                     <img [src]="product.image"  class="w-100" alt="">
@@ -30,7 +30,7 @@
         <button *ngIf="showAll" (click)="showAll = false" class="third-btn" type="button">see less</button>
     </div>
 <div [class.flex-nowrap]="!showAll" class="row g-4 overflow-hidden">
-        <div *ngFor="let product of allProducts.slice(12,-1)" class="col-md-3" [routerLink]="['/details',product.id]">
+        <div *ngFor="let product of allProducts.slice(12,-1)" class="col-lg-3 col-md-6" [routerLink]="['/details',product.id]">
             <div class="suggest-card position-relative">
                 <div class="head position-relative p-4">
                     <img [src]="product.image"  class="w-100" alt="">

@@ -13,7 +13,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav gap-5 ms-auto mt-2 mt-lg-0 align-items-center">
+            <ul class="navbar-nav gap-lg-5 row-gap-3 ms-auto mt-2 mt-lg-0 align-items-center">
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/main" routerLinkActive="active">home</a>
                 </li>
@@ -27,7 +27,7 @@
                     <a class="nav-link" routerLink="/login" routerLinkActive="active">signup</a>
                 </li>
             </ul>
-            <div class="ms-auto d-flex justify-content-between align-items-center gap-4">
+            <div class="ms-auto d-flex justify-content-center align-items-center gap-4">
                 <div class="position-relative search">
                     <input (input)="addTextSearch()" [(ngModel)]="searchWord" type="text" placeholder="what are you looking for?">
                     <i class="fa-solid fa-magnifying-glass position-absolute top-50 translate-middle"></i>

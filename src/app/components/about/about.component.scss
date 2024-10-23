@@ -59,9 +59,11 @@
     border-radius: var(--raduis);
     .head{
         background-color: #F5F5F5;
-        padding: 60px;
+        padding-top: 40px;
+        
         img{
-            height: 400px;
+            height: 350px;
+            object-fit: contain;
         }
     }
     .body{

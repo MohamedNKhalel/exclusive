@@ -4,7 +4,7 @@
         <span class="current">details</span>
     </div>
     <div class="row product g-4 my-3  align-items-start">
-        <div class="col-md-8">
+        <div class="col-lg-8">
             <div class="product-images">
                 <div class="row g-4">
                     <div class="col-md-4">
@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-4">
             <div class="product-details">
                 <div class="d-flex flex-column gap-3 pb-3 border-bottom border-black">
                     <h2>{{productDetails?.title.split(' ').slice(0,3).join(' ')}}</h2>
@@ -110,7 +110,7 @@
             <button *ngIf="showAll" (click)="showAll = false" class="third-btn" type="button">see less</button>
         </div>
         <div [class.flex-nowrap]="!showAll" class="row g-4 overflow-hidden">
-            <div *ngFor="let product of products" [routerLink]="['/details',product.id]" class="col-md-3">
+            <div *ngFor="let product of products" [routerLink]="['/details',product.id]" class="col-lg-3 col-md-6">
                 <div class="suggest-card position-relative">
                     <div class="head position-relative">
                         <img [src]="product.image" class="w-100" alt="">

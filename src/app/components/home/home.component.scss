@@ -305,11 +305,15 @@
         ul{
             li{
                 background-color: #FAFAFA;
-                padding: 10px;
-                width: 65px;
-                height: 65px;
+                width: 70px;
+                height: 70px;
+                padding: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
                 b{
-                    font-size: rem;
+                    font-size: .87rem;
                 }
                 span{
                     font-size: .6875em;
@@ -553,5 +557,26 @@
             font-size: 14px;
         }
         
+    }
+    
+}
+@media screen and (max-width:992px) {
+    .sale{
+        .details{
+            font-size: 14px;
+        }
+    }
+    .cat-card{
+        min-height: 170px !important;
+    }
+    .browse{
+        h3{
+            font-size: 1.5em !important;
+        }
+    }
+    .selling{
+        h3{
+            font-size: 1.5em;
+        }
     }
 }

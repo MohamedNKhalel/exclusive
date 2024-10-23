@@ -20,7 +20,12 @@
     }
 }
 .contact-inputs{
+    .top-inputs{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
     input,textarea{
+        width: 32%;
         background-color: var(--secondary-color);
         padding: 12px 20px;
         border: none;
@@ -36,6 +41,15 @@
 @media screen and (max-width:768px) {
     .top-inputs{
         flex-direction: column;
+        row-gap: 20px;
+        input{
+            width: 100%;
+        }
+    }
+}
+@media screen and (max-width:992px) {
+    .top-inputs{
+        // flex-direction: column;
         row-gap: 20px;
         input{
             width: 100%;

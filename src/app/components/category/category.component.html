@@ -1,6 +1,6 @@
 <div class="container py-5">
     <div #ourProducts class="row g-4 selling-cards mt-4">
-        <div *ngFor="let product of products; let i = index" [routerLink]="['/details',product.id]" class="col-md-3">
+        <div *ngFor="let product of products; let i = index" [routerLink]="['/details',product.id]" class="col-lg-3 col-md-6">
             <div class="selling-card">
                 <div class="head">
                     <img height="300" [src]="product.image" alt="">
