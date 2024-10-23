@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { User } from 'src/app/interfaces/user';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { ToastrService } from 'ngx-toastr';
@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule,FormsModule,SharedModule],
+  imports: [CommonModule,FormsModule,SharedModule,RouterLink],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
   providers:[ToastrService]
