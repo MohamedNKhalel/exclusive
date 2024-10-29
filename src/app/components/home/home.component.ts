@@ -25,6 +25,8 @@ export class HomeComponent implements OnInit{
     this._DataService.searchWord.subscribe((searchword)=>{
       this.searchWord = searchword;
     })
+    this.getUserId();
+    
   }
   searchWord:string = ''
   cartProducts:any[] =[];
@@ -44,6 +46,7 @@ export class HomeComponent implements OnInit{
   imageUrl:string = '';
   showModalVar:boolean = false;
   showSiedMenu:boolean = false;
+  userInfo:any = []
   getAllProducts(){
     this._DataService.getAllProducts().subscribe({
       next:data=>{
@@ -54,6 +57,13 @@ export class HomeComponent implements OnInit{
         
       }
     })
+  }
+  getUserId(){
+    if(sessionStorage.getItem('token') != null){
+      this.userInfo = JSON.parse(sessionStorage.getItem('token')!);
+      console.log(this.userInfo);
+      
+    }
   }
   getAllCategories(){
     this._DataService.getAllCategories().subscribe({
@@ -118,8 +128,8 @@ export class HomeComponent implements OnInit{
   addToCart(product:Product){
     if(sessionStorage.getItem('token') != null){
       let item = {
-        product:product,
-        quantity:1
+          product:product,
+          quantity:1,
       }
       if(localStorage.getItem('cartProducts') != null){
         this.cartProducts = JSON.parse(localStorage.getItem('cartProducts')!);

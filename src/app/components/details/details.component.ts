@@ -28,6 +28,7 @@ export class DetailsComponent implements OnInit{
     quantity:number = 1;
     imageUrl:string = ''
     showModalVar:boolean = false;
+    userInfo:any = [];
   constructor(private _DataService:DataService,private _ActivatedRoute:ActivatedRoute,private _Router:Router,private _ToastrService:ToastrService){}
   ngOnInit(): void {
       this._ActivatedRoute.paramMap.subscribe({
@@ -50,6 +51,7 @@ export class DetailsComponent implements OnInit{
         this.wishlistProducts = JSON.parse(localStorage.getItem('wishlist')!);
         this.wishlistIds = this.wishlistProducts.map(product=>product.id);
       }
+      this.getUserId()
   }
   getProducts(category:string){
     this._DataService.getProductsByCategory(category).subscribe({
@@ -61,6 +63,13 @@ export class DetailsComponent implements OnInit{
       }
     })
   }
+  getUserId(){
+    if(sessionStorage.getItem('token') != null){
+      this.userInfo = JSON.parse(sessionStorage.getItem('token')!);
+      console.log(this.userInfo);
+      
+    }
+  }
   selectColor(color:string){
     this.selectedColor = color;
   }
@@ -69,8 +78,8 @@ export class DetailsComponent implements OnInit{
   }
   addToCart(product:Product,quantity:number){
     let item = {
-      product:product,
-      quantity:quantity
+        product:product,
+        quantity:quantity,
     }
     if(localStorage.getItem('cartProducts') != null){
       this.cartProducts = JSON.parse(localStorage.getItem('cartProducts')!);
